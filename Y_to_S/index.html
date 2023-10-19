@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo3.png" type="logo3.png">
+</head>
+
+<body>
+    <div class="container">
+        <img class="logo" src="logo3.png" alt="">
+        <h1 class="khan">Area Converter</h1>
+        <div class="tabs">
+            <div class="tab active" id="yardTab" onclick="showTab('yardTab', 'squareFeetTab')"><b>Yard to Square Feet</b></div>
+            <div class="tab" id="squareFeetTab" onclick="showTab('squareFeetTab', 'yardTab')"><b>Square Feet to Yard</b></div>
+        </div>
+        <div class="card">
+            <div class="input-container">
+                <label for="inputValue"><b>Enter a Value:</b></label>
+                <input type="number" id="inputValue" placeholder="Enter Yard area" required>
+                <button onclick="convertArea()"><b>Convert</b></button>
+            </div>
+        </div>
+        <section class="car">
+            <div class="result" id="result"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
