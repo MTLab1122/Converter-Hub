@@ -8,7 +8,7 @@ function showTab(activeTab, inactiveTab) {
 function convertArea() {
     const inputValue = parseFloat(document.getElementById('inputValue').value);
     if (isNaN(inputValue)) {
-        alert('Invalid input. Please enter a valid number.');
+        
         return;
     }
 
@@ -29,10 +29,26 @@ function convertArea() {
     document.getElementById('result').textContent = `${inputValue} ${activeTab === 'yardTab' ? 'Yards' : 'Square Feet'} is equal to ${convertedValue.toFixed(2)} ${unit}.`;
 }
 
+// Prevent form submission and handle the conversion
+document.getElementById('areaForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    convertArea();
+});
+
+// Add an event listener to the input field for "Enter" key press
 document.getElementById('inputValue').addEventListener('keydown', function(event) {
     // Check if the pressed key is "Enter" (key code 13)
     if (event.keyCode === 13) {
-        // Call the convertTemperature function if "Enter" key is pressed
         convertArea();
     }
 });
+
+
+function convertArea() {
+    const inputValue = document.getElementById('inputValue').value.trim();
+    if (!inputValue) {
+        document.getElementById('inputValue').setCustomValidity('Please fill out this field.');
+        document.getElementById('inputValue').reportValidity();
+        return;
+    }
+}
